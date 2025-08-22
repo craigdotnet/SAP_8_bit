@@ -1,11 +1,24 @@
-# SAP_8_bit
-SystemVerilog - 8 bit SAP CPU.  Fully functional, but some of the opcodes are not defined, and some do not have logic programmed yet
+# SystemVerilog – 8-bit SAP CPU
 
-This is the classic 8 bit SAP usually done in 1st year class.  It works, but I am about to expand on it so I am not spending any more time to add additional opcodes or add the logic.
-This is extremely simple with a single FETCH/EXECUTE cycle (no instruction counter).  Obviously an instruction counter needs to be added, but for now this was just a proof-of-concept.
+This project implements a simplified 8-bit Simple-As-Possible (SAP) CPU using SystemVerilog.
+It is based on the classic design often introduced in first-year computer architecture courses.
 
-The testbench tb_top.sv is where you can add a simple program and is setup with the init_mem[x] . . . code.
-Also, the tasks in the top_module are solely there to assist in debugging and can be removed if programming on an FPGA board.
+Current Status
+  Fully functional core with basic operations implemented
+  Some opcodes are not yet defined, and a few have no logic implemented
+  Single FETCH/EXECUTE cycle (no instruction counter yet)
+  Designed as a proof-of-concept for future expansion
 
-If you are testing on a platform (such as EDA Playground), you will need to combine all of the modules into 1 and make sure the typedef statements are at the very top.
-Then add the tb_top.sv testbench and simulate.  You do not need waveforms as the top_module does a before/after mem dump and shows a few registers for sanity checks.
+An instruction counter and additional opcodes will be added in future iterations, but the current version prioritizes demonstrating the core concept.
+
+Testbench
+The provided testbench tb_top.sv allows you to:
+  Load a simple program using the init_mem[x] initialization method
+  Run simulations to validate functionality
+  Use built-in debug tasks for easier troubleshooting (these can be removed for FPGA deployment)
+
+Simulation Notes
+  When testing on platforms such as EDA Playground:
+  Combine all module files into a single file and place the typedef statements at the top
+  Include the tb_top.sv testbench for simulation
+  Waveforms are optional—the top_module provides memory dumps before and after execution, along with key register values for quick verification
